@@ -10,11 +10,11 @@ def reorder_files(files_in_dir):
     '''
     reordered_files = files_in_dir
     # Sort as per string
-    reordered_files = sorted(reordered_files, key=lambda x:x)
+    # reordered_files = sorted(reordered_files, key=lambda x:x)
     # Google Priv Reordering
     # reordered_files = sorted(reordered_files, key=lambda x: int(x[:4]))
     # Twitter Reordering
-    # reordered_files = sorted(reordered_files, key=lambda x: int(x.split(" ")[1]))
+    reordered_files = sorted(reordered_files, key=lambda x: int(x.split(" ")[1]))
     return reordered_files
 
 def get_dir_files(target_dir=os.getcwd()):
@@ -51,21 +51,14 @@ def analyze_file(curr_file):
 if __name__ == "__main__":
     files_in_dir, file_word_count = get_dir_files()
     layout_param = Layout(
-        title=layout.Title(
-            # text='Twitter Privacy Policy Revisions',
-            # text='Google Privacy Policy Revisions',
-            text='Google Privacy Policies Link Expansion',
-            xref='paper',
-            x=0
-        ),
         xaxis=layout.XAxis(
             title=layout.xaxis.Title(
-                # text='Twitter Privacy Policies',
-                text='Google Privacy Policies',
+                text='Twitter Privacy Policies',
+                # text='Google Privacy Policies',
                 font=dict(
-                    family='Courier New, monospace',
+                    family='Times New Roman, Times, serif',
                     size=18,
-                    color='#7f7f7f'
+                    color='black'
                 )
             )
         ),
@@ -73,9 +66,9 @@ if __name__ == "__main__":
             title=layout.yaxis.Title(
                 text='Number of Words in Document',
                 font=dict(
-                    family='Courier New, monospace',
+                    family='Times New Roman, Times, serif',
                     size=16,
-                    color='#7f7f7f'
+                    color='black'
                 )
             )
         )
